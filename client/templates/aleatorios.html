@@ -1,0 +1,32 @@
+---
+name: aleatorios
+url: /aleatorios
+controller: aleatorios
+---
+
+<div class="grid-container">
+	
+	<zf-accordion>
+		<zf-accordion-item title="Números">
+			<form ng-submit="numbers.calculate()">
+				<label>Cantidad: <input type="number" min="1" ng-model="numbers.howMany" placeholder="¿Cuántos números?" /></label>
+				<label>
+					Entre: <input type="number" ng-model="numbers.from">
+					y <input type="number" ng-model="numbers.to">
+				</label>
+				<label>Redondear a <input type="number" ng-model="numbers.digits" min="0" max="20"> dígitos</label>
+				<label>Ordenar: <input type="checkbox" ng-model="numbers.sort"></label>
+				<button class="button" type="submit">Calcular</button>
+			</form>
+			<section class="block-list">
+				<header>Resultados</header>
+				<ul>
+					<li ng-repeat="row in numbers.results" style="display: inline; margin: 5px">
+						{{ row.number }}
+					</li>
+				</ul>
+			</section>
+		</zf-accordion-item>
+	</zf-accordion>
+
+</div>
